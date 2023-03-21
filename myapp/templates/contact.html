@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PortFolio</title>
+    <link rel="stylesheet" href="
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .alert{
+            box-sizing:initial;
+            font-size:medium;
+            color: azure;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: var(--main-color);
+            height: 5rem;
+            width: 40rem;
+            margin: auto;
+            align-items: center;
+            padding: 0 4rem;
+        }
+       
+    </style>
+</head>
+<body>
+
+{%include "header.html" %}
+
+{% if messages %}
+<ul class="alert">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+    <div class="cursor1"></div>
+    <div class="cursor2"></div>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+ 
+
+    <section class="contact" id="contact">
+        <h1 class="heading">contact <span> me </span></h1>
+      
+
+    <div class="row">
+        <form action="contact" method="post">
+        {%csrf_token%}
+        
+            <input type="text" name="name" placeholder="name" class="box">
+            <input type="email" name="email" placeholder="email" class="box">
+            <input type="number" name="phone" placeholder=" phone number" class="box">
+            <textarea  placeholder="message" name="message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" class="btn" value="send message">
+        </form>
+        <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57260.52262485734!2d81.20684680161649!3d26.236250456319656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399ba14166f655d1%3A0x24dffd072d377f70!2sRaebareli%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1677136947194!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+</section>
+
+<footer>
+created by <span>mr. Shobhit Pal
+</span>| all rights reserver!
+</footer>
+<script src="static/script.js"></script>
+</body>
+</html>
